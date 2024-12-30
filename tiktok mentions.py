@@ -172,6 +172,8 @@ for i in videos:
 all_videos = pd.DataFrame(all_videos)
 all_videos.to_excel('all_tiktok_videos.xlsx')
 
+print('test change')
+
 #checking if any of the top 10 out of sandy's top 50 accounts made it into the descriptions
 #top50 = ['minimotleymomof2','lifetaketwo','thymeandtenderness','2bebetterpodcast','aberrywonderfullife','the.wicked.peach.life','theweddingguest','landladyadaogidi','mckennamotleymomof2']
 
