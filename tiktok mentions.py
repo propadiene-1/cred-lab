@@ -158,6 +158,8 @@ for i in videos:
 
 #print(user_mentions_top10)
 #no significant findings. the only mentions without the @ are used in hashtags from the same user.
+
+#storing btokbeauty videos
 btokbeauty_videos = []
 for i in videos:
     if videos[i]['username'] == 'btokbeauty2':
@@ -165,6 +167,8 @@ for i in videos:
 
 pd.DataFrame(btokbeauty_videos).to_excel('btokbeauty_videos.xlsx')
 
+
+#storing all videos in a spreadsheet to read
 all_videos = []
 for i in videos:
     all_videos.append(videos[i])
@@ -172,6 +176,23 @@ for i in videos:
 all_videos = pd.DataFrame(all_videos)
 all_videos.to_excel('all_tiktok_videos.xlsx')
 
+#getting the top 10 most viewed users
+top31 = list(userdf.head(31).index)
+
+user_mentions_top31 = {}
+
+for i in videos:
+    for j in range(30):
+       if top31[j] in videos[i]['video_description']:
+          if videos[i]['username'] not in user_mentions_top31:
+             user_mentions_top31[videos[i]['username']] = []
+          x = videos[i]['video_description'].split()
+          for k in range(len(x)-1):
+             if top10[j] in x[k]:
+                user_mentions_top31[videos[i]['username']].append(x[k])
+
+print(user_mentions_top31)
+#no significant findings. the only mentions without the @ are used in hashtags from the same user.
 
 #checking if any of the top 10 out of sandy's top 50 accounts made it into the descriptions
 #top50 = ['minimotleymomof2','lifetaketwo','thymeandtenderness','2bebetterpodcast','aberrywonderfullife','the.wicked.peach.life','theweddingguest','landladyadaogidi','mckennamotleymomof2']
