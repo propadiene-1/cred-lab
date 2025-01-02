@@ -176,7 +176,7 @@ for i in videos:
 all_videos = pd.DataFrame(all_videos)
 all_videos.to_excel('all_tiktok_videos.xlsx')
 
-#getting the top 10 most viewed users
+#getting the top 31 most viewed users
 top31 = list(userdf.head(31).index)
 
 user_mentions_top31 = {}
@@ -188,7 +188,7 @@ for i in videos:
              user_mentions_top31[videos[i]['username']] = []
           x = videos[i]['video_description'].split()
           for k in range(len(x)-1):
-             if top10[j] in x[k]:
+             if top31[j] in x[k]:
                 user_mentions_top31[videos[i]['username']].append(x[k])
 
 print(user_mentions_top31)
