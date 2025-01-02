@@ -176,7 +176,7 @@ for i in videos:
 all_videos = pd.DataFrame(all_videos)
 all_videos.to_excel('all_tiktok_videos.xlsx')
 
-#getting the top 31 most viewed users
+#getting all 31 users to look for mentions without @
 top31 = list(userdf.head(31).index)
 
 user_mentions_top31 = {}
